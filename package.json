@@ -1,0 +1,199 @@
+{
+  "name": "supreme",
+  "displayName": "Supreme",
+  "description": "Next-gen security scanner for your workspace",
+  "icon": "resources/app-icon.png",
+  "version": "1.0.33",
+  "publisher": "SilenceAILLC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supreme-security/supreme"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:supreme.startScan",
+    "onView:supreme-dashboard",
+    "onView:supreme-results",
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "bin": {
+    "supreme": "./cli/supreme-cli.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "supreme.startScan",
+        "title": "Supreme: Start Scan",
+        "icon": "$(play)"
+      },
+      {
+        "command": "supreme.clearHistory",
+        "title": "Clear History",
+        "icon": "$(clear-all)"
+      },
+      {
+        "command": "supreme.deleteScan",
+        "title": "Delete Scan",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "supreme.exportReport",
+        "title": "Export Report",
+        "icon": "$(export)"
+      },
+      {
+        "command": "supreme.scanTarget",
+        "title": "Scan with Supreme",
+        "icon": "resources/app-icon.png"
+      },
+      {
+        "command": "supreme.activate",
+        "title": "Supreme: Activate License",
+        "icon": "$(key)"
+      },
+      {
+        "command": "supreme.stopScan",
+        "title": "Supreme: Stop Scan",
+        "icon": "$(stop)"
+      },
+      {
+        "command": "supreme.filterHistory",
+        "title": "Supreme: Filter History",
+        "icon": "$(filter)"
+      },
+      {
+        "command": "supreme.installCli",
+        "title": "Supreme: Install CLI Tool",
+        "icon": "$(terminal)"
+      }
+    ],
+    "configuration": {
+      "title": "Supreme Security",
+      "properties": {
+        "supreme.serverUrl": {
+          "type": "string",
+          "default": "https://supreme.silence.codes",
+          "description": "URL of the Supreme backend server for license validation and API calls."
+        },
+        "supreme.developerMode": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable verification against localhost servers. DANGEROUS: Do not enable in production."
+        },
+        "supreme.severity.ignoreLow": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide LOW severity issues from results."
+        },
+        "supreme.severity.ignoreMedium": {
+          "type": "boolean",
+          "default": false,
+          "description": "Hide MEDIUM severity issues from results."
+        },
+        "supreme.excludePaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "**/node_modules/**",
+            "**/dist/**",
+            "**/.git/**"
+          ],
+          "description": "Glob patterns to exclude from scanning."
+        },
+        "supreme.skipDbUpdate": {
+          "type": "boolean",
+          "default": false,
+          "description": "Skip vulnerability database update for faster scans. Use after first successful scan."
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "supreme-sidebar",
+          "title": "Supreme",
+          "icon": "resources/sidebar-icon.png"
+        }
+      ]
+    },
+    "views": {
+      "supreme-sidebar": [
+        {
+          "type": "webview",
+          "id": "supreme-dashboard",
+          "name": "Dashboard"
+        },
+        {
+          "id": "supreme-results",
+          "name": "History"
+        }
+      ]
+    },
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "supreme.scanTarget",
+          "group": "security"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "supreme.startScan",
+          "when": "view == supreme-results",
+          "group": "navigation"
+        },
+        {
+          "command": "supreme.clearHistory",
+          "when": "view == supreme-results",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "supreme.deleteScan",
+          "when": "view == supreme-results && viewItem == historyItem",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/adm-zip": "^0.5.7",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/sinon": "^21.0.0",
+    "@types/vscode": "^1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "sinon": "^21.0.1",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.3",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "axios": "^1.13.2",
+    "json-to-ast": "^2.1.0"
+  }
+}
