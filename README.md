@@ -13,6 +13,7 @@ Supreme is an advanced, all-in-one security scanner for Visual Studio Code. It d
 - **Zero Configuration**: Auto-installs necessary engines.
 - **Cancellable Operations**: Stop scans or downloads at any time.
 - **Clean Uninstall**: All history is removed when you uninstall the extension.
+- **Threat Intelligence**: Powered by a combination of aggregated open-source intelligence (OSINT) and our own proprietary threat findings for maximum coverage.
 
 ## Usage
 

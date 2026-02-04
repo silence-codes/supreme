@@ -3,11 +3,11 @@
   "displayName": "Supreme",
   "description": "Next-gen security scanner for your workspace",
   "icon": "resources/app-icon.png",
-  "version": "1.0.33",
+  "version": "1.0.34",
   "publisher": "SilenceAILLC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/supreme-security/supreme"
+    "url": "https://github.com/silence-codes/supreme"
   },
   "engines": {
     "vscode": "^1.74.0"
