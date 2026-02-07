@@ -3,7 +3,7 @@
   "displayName": "Supreme",
   "description": "Next-gen security scanner for your workspace",
   "icon": "resources/app-icon.png",
-  "version": "1.0.34",
+  "version": "1.0.35",
   "publisher": "SilenceAILLC",
   "repository": {
     "type": "git",

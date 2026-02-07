@@ -101,6 +101,12 @@ export class TrivyService {
             this.currentDownloadRequest.destroy();
             this.currentDownloadRequest = null;
         }
+        this.isDownloading = false;
+    }
+
+    /** Reset cancellation state so a new scan can proceed */
+    public resetCancelState(): void {
+        this.isCancelled = false;
     }
 
     public isScanning(): boolean {
@@ -142,7 +148,8 @@ export class TrivyService {
     }
 
     public async checkAndInstallTrivy(): Promise<void> {
-        if (this.isCancelled) throw new Error('Cancelled');
+        // Reset cancellation state for a fresh operation
+        this.isCancelled = false;
         await this.fetchTrivyConfig();
         if (this.isCancelled) throw new Error('Cancelled');
 
@@ -449,6 +456,8 @@ export class TrivyService {
     }
 
     public async runScan(targetPath: string): Promise<ScanResult[]> {
+        // Reset cancellation flag so a fresh scan can proceed
+        this.isCancelled = false;
         const trivyPath = this.getTrivyExecutablePath();
 
         // Settings
@@ -612,9 +621,6 @@ export class TrivyService {
         const SCAN_TIMEOUT_MS = 5 * 60 * 1000; // 5 minutes timeout
 
         return new Promise((resolve, reject) => {
-            // Reset cancellation flag at the start
-            this.isCancelled = false;
-
             const child = spawn(command, args, { maxBuffer: 1024 * 1024 * 100 } as any);
             this.currentScanProcess = child;
 

@@ -264,6 +264,9 @@ export async function activate(context: vscode.ExtensionContext) {
             return;
         }
 
+        // Reset any previous cancellation state before starting a new scan
+        trivyService.resetCancelState();
+
         sidebarProvider.setScanningState(true);
         statusBarManager.setScanning();
 
