@@ -1,0 +1,20 @@
+---
+# Example GitLab CI configuration for supreme2l security scanning
+# Add to your .gitlab-ci.yml file
+
+security-scan:
+  stage: test
+  image: python:3.12-slim
+  before_script:
+    - pip install supreme2l
+  script:
+    - s2l scan . --fail-on high --format json --output security-report.json
+  artifacts:
+    when: always
+    paths:
+      - security-report.json
+    reports:
+      codequality: security-report.json
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

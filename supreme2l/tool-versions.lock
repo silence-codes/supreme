@@ -1,0 +1,70 @@
+# Supreme 2 Light Tool Versions Lock File
+# Generated: 2025-12-11T10:00:00.000000
+# Supreme 2 Light Version: 2025.8.5.12
+#
+# This file pins specific versions of external security tools to ensure
+# reproducible scans across different environments and time periods.
+
+[metadata]
+lockfile_version = "1.0"
+generated_at = "2025-12-11T10:00:00.000000"
+supreme2l_version = "2025.8.5.12"
+
+[tools.python]
+ansible-lint = "25.11.1"
+bandit = "1.9.2"
+black = "25.12.0"
+mccabe = "0.7.0"
+mypy = "1.19.0"
+prospector = "1.17.3"
+pydocstyle = "6.3.0"
+pyflakes = "3.4.0"
+pylint = "4.0.3"
+ruff = "0.14.8"
+safety = "3.7.0"
+sqlfluff = "3.5.0"
+vulture = "2.14"
+yamllint = "1.37.1"
+
+[tools.javascript]
+eslint = "9.39.1"
+htmlhint = "1.8.0"
+jshint = "2.13.6"
+markdownlint-cli = "0.46.0"
+prettier = "3.7.2"
+standard = "17.1.2"
+stylelint = "16.26.1"
+typescript = "5.9.3"
+
+[tools.go]
+golangci-lint = "2.6.2"
+staticcheck = "2025.1.1"
+
+[tools.rust]
+clippy = "0.0.302"
+
+[tools.shell]
+bashate = "2.1.1"
+shellcheck = "0.11.0"
+
+[tools.docker]
+hadolint = "2.14.0"
+
+[tools.terraform]
+checkov = "3.2.495"
+tflint = "0.60.0"
+tfsec = "1.28.14"
+
+[tools.kubernetes]
+kube-linter = "0.7.6"
+kubeval = "0.16.1"
+
+[tools.ai]
+garak = "0.13.2"
+llm-guard = "0.3.16"
+modelscan = "0.8.7"
+
+[tools.misc]
+gitleaks = "8.30.0"
+semgrep = "1.145.0"
+trivy = "0.68.1"
