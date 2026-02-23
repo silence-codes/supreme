@@ -1,0 +1,125 @@
+{
+    "name": "supreme2l",
+    "displayName": "Supreme 2 Light",
+    "description": "AI-first security scanner with 74 analyzers, intelligent false positive reduction, and 180+ AI agent security rules",
+    "version": "1.0.10",
+    "publisher": "SilenceAI",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Zeinullahh/Supreme-2-Light"
+    },
+    "engines": {
+        "vscode": "^1.74.0"
+    },
+    "categories": [
+        "Security",
+        "Linters",
+        "Programming Languages"
+    ],
+    "activationEvents": [
+        "onStartupFinished"
+    ],
+    "main": "./dist/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "supreme2l.startScan",
+                "title": "Supreme 2 Light: Start Scan",
+                "icon": "$(play)"
+            },
+            {
+                "command": "supreme2l.stopScan",
+                "title": "Supreme 2 Light: Stop Scan",
+                "icon": "$(stop)"
+            },
+            {
+                "command": "supreme2l.exportReport",
+                "title": "Supreme 2 Light: Export Report (JSON)",
+                "icon": "$(json)"
+            },
+            {
+                "command": "supreme2l.installTools",
+                "title": "Supreme 2 Light: Install Missing Tools",
+                "icon": "$(cloud-download)"
+            }
+        ],
+        "viewsContainers": {
+            "activitybar": [
+                {
+                    "id": "supreme2l-sidebar",
+                    "title": "Supreme 2 Light",
+                    "icon": "resources/sidebar-icon.png"
+                }
+            ]
+        },
+        "views": {
+            "supreme2l-sidebar": [
+                {
+                    "type": "webview",
+                    "id": "supreme2l-dashboard",
+                    "name": "Dashboard"
+                },
+                {
+                    "id": "supreme2l-results",
+                    "name": "Scan History"
+                }
+            ]
+        },
+        "configuration": {
+            "title": "Supreme 2 Light",
+            "properties": {
+                "supreme2l.pythonPath": {
+                    "type": "string",
+                    "default": "",
+                    "description": "Path to the Python interpreter where supreme2l is installed. Leave empty to use system 'python3' or 'python'."
+                },
+                "supreme2l.excludePaths": {
+                    "type": "array",
+                    "default": [
+                        "**/node_modules/**",
+                        "**/dist/**",
+                        "**/.git/**",
+                        "**/.venv/**",
+                        "**/__pycache__/**"
+                    ],
+                    "description": "Glob patterns to exclude from scanning."
+                },
+                "supreme2l.severityFilter": {
+                    "type": "string",
+                    "enum": [
+                        "INFO",
+                        "LOW",
+                        "MEDIUM",
+                        "HIGH",
+                        "CRITICAL"
+                    ],
+                    "default": "LOW",
+                    "description": "Minimum severity level to report."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run package",
+        "compile": "webpack",
+        "watch": "webpack --watch",
+        "package": "webpack --mode production --devtool hidden-source-map",
+        "lint": "eslint src --ext ts"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.0.0",
+        "@types/node": "16.x",
+        "@types/vscode": "^1.74.0",
+        "@typescript-eslint/eslint-plugin": "^5.42.0",
+        "@typescript-eslint/parser": "^5.42.0",
+        "eslint": "^8.26.0",
+        "glob": "^8.0.3",
+        "ts-loader": "^9.4.1",
+        "typescript": "^4.8.4",
+        "webpack": "^5.74.0",
+        "webpack-cli": "^4.10.0"
+    },
+    "dependencies": {
+        "axios": "^1.1.2"
+    }
+}

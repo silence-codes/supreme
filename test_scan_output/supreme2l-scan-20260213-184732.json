@@ -1,0 +1,172 @@
+{
+  "timestamp": "2026-02-13T18:47:32.278588",
+  "supreme2l_version": "1.0.0",
+  "scan_summary": {
+    "total_issues": 2,
+    "files_scanned": 2,
+    "lines_scanned": 2,
+    "security_score": 99,
+    "risk_level": "EXCELLENT"
+  },
+  "severity_breakdown": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 1,
+    "UNDEFINED": 0
+  },
+  "findings": [
+    {
+      "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+      "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+      "line": null,
+      "severity": "LOW",
+      "confidence": "HIGH",
+      "issue": "express@4.17.1 - CVE-2024-29041: express: cause malformed URLs to be evaluated (fix: 4.19.2, 5.0.0-beta.3)",
+      "cwe": null,
+      "code": null,
+      "fp_analysis": {
+        "is_likely_fp": true,
+        "confidence": 0.7,
+        "reason": "test_file",
+        "explanation": "Finding is in a test file (may contain intentional test credentials)"
+      },
+      "original_severity": "MEDIUM"
+    },
+    {
+      "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+      "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+      "line": null,
+      "severity": "INFO",
+      "confidence": "HIGH",
+      "issue": "express@4.17.1 - CVE-2024-43796: express: Improper Input Handling in Express Redirects (fix: 4.20.0, 5.0.0)",
+      "cwe": null,
+      "code": null,
+      "fp_analysis": {
+        "is_likely_fp": true,
+        "confidence": 0.7,
+        "reason": "test_file",
+        "explanation": "Finding is in a test file (may contain intentional test credentials)"
+      },
+      "original_severity": "LOW"
+    }
+  ],
+  "aggregations": {
+    "by_severity": {
+      "LOW": [
+        {
+          "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+          "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+          "line": null,
+          "severity": "LOW",
+          "confidence": "HIGH",
+          "issue": "express@4.17.1 - CVE-2024-29041: express: cause malformed URLs to be evaluated (fix: 4.19.2, 5.0.0-beta.3)",
+          "cwe": null,
+          "code": null,
+          "fp_analysis": {
+            "is_likely_fp": true,
+            "confidence": 0.7,
+            "reason": "test_file",
+            "explanation": "Finding is in a test file (may contain intentional test credentials)"
+          },
+          "original_severity": "MEDIUM"
+        }
+      ],
+      "INFO": [
+        {
+          "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+          "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+          "line": null,
+          "severity": "INFO",
+          "confidence": "HIGH",
+          "issue": "express@4.17.1 - CVE-2024-43796: express: Improper Input Handling in Express Redirects (fix: 4.20.0, 5.0.0)",
+          "cwe": null,
+          "code": null,
+          "fp_analysis": {
+            "is_likely_fp": true,
+            "confidence": 0.7,
+            "reason": "test_file",
+            "explanation": "Finding is in a test file (may contain intentional test credentials)"
+          },
+          "original_severity": "LOW"
+        }
+      ]
+    },
+    "by_file": {
+      "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json": [
+        {
+          "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+          "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+          "line": null,
+          "severity": "LOW",
+          "confidence": "HIGH",
+          "issue": "express@4.17.1 - CVE-2024-29041: express: cause malformed URLs to be evaluated (fix: 4.19.2, 5.0.0-beta.3)",
+          "cwe": null,
+          "code": null,
+          "fp_analysis": {
+            "is_likely_fp": true,
+            "confidence": 0.7,
+            "reason": "test_file",
+            "explanation": "Finding is in a test file (may contain intentional test credentials)"
+          },
+          "original_severity": "MEDIUM"
+        },
+        {
+          "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+          "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+          "line": null,
+          "severity": "INFO",
+          "confidence": "HIGH",
+          "issue": "express@4.17.1 - CVE-2024-43796: express: Improper Input Handling in Express Redirects (fix: 4.20.0, 5.0.0)",
+          "cwe": null,
+          "code": null,
+          "fp_analysis": {
+            "is_likely_fp": true,
+            "confidence": 0.7,
+            "reason": "test_file",
+            "explanation": "Finding is in a test file (may contain intentional test credentials)"
+          },
+          "original_severity": "LOW"
+        }
+      ]
+    },
+    "by_scanner": {
+      "react2shellscanner+trivyscanner+gitleaksscanner": [
+        {
+          "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+          "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+          "line": null,
+          "severity": "LOW",
+          "confidence": "HIGH",
+          "issue": "express@4.17.1 - CVE-2024-29041: express: cause malformed URLs to be evaluated (fix: 4.19.2, 5.0.0-beta.3)",
+          "cwe": null,
+          "code": null,
+          "fp_analysis": {
+            "is_likely_fp": true,
+            "confidence": 0.7,
+            "reason": "test_file",
+            "explanation": "Finding is in a test file (may contain intentional test credentials)"
+          },
+          "original_severity": "MEDIUM"
+        },
+        {
+          "scanner": "react2shellscanner+trivyscanner+gitleaksscanner",
+          "file": "/home/wrld/Supreme-2-Light/test_pkg/package-lock.json",
+          "line": null,
+          "severity": "INFO",
+          "confidence": "HIGH",
+          "issue": "express@4.17.1 - CVE-2024-43796: express: Improper Input Handling in Express Redirects (fix: 4.20.0, 5.0.0)",
+          "cwe": null,
+          "code": null,
+          "fp_analysis": {
+            "is_likely_fp": true,
+            "confidence": 0.7,
+            "reason": "test_file",
+            "explanation": "Finding is in a test file (may contain intentional test credentials)"
+          },
+          "original_severity": "LOW"
+        }
+      ]
+    }
+  }
+}

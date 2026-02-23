@@ -1,0 +1,21 @@
+---
+# Example pre-commit configuration for supreme2l
+# Copy to .pre-commit-config.yaml in your repository root
+# Then run: pre-commit install
+
+repos:
+  - repo: local
+    hooks:
+      - id: supreme2l-scan
+        name: supreme2l Security Scan
+        entry: s2l scan --quick --fail-on high
+        language: system
+        pass_filenames: false
+        stages: [commit]
+
+      - id: supreme2l-full-scan
+        name: supreme2l Full Security Scan
+        entry: s2l scan --fail-on medium
+        language: system
+        pass_filenames: false
+        stages: [push]
